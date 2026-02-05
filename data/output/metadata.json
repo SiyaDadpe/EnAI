@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "pipeline_start": "2026-02-06T00:33:27.075673",
+    "pipeline_end": "2026-02-06T00:33:27.468715"
+  },
+  "lineage_graph": {
+    "ingested_Weather.csv": {
+      "stage": "ingestion",
+      "source": "/Users/siya/Desktop/EnAI/data/raw/Weather.csv",
+      "timestamp": "2026-02-06T00:33:27.164875",
+      "stats": {
+        "row_count": 50000,
+        "column_count": 6,
+        "columns": [
+          "stationid",
+          "observationdate",
+          "rainfall",
+          "rain_unit",
+          "temperature",
+          "temperature_unit"
+        ],
+        "memory_usage_mb": 8.522855758666992,
+        "missing_values": {
+          "stationid": 0,
+          "observationdate": 24920,
+          "rainfall": 4952,
+          "rain_unit": 9937,
+          "temperature": 2488,
+          "temperature_unit": 0
+        },
+        "dtypes": {
+          "stationid": "object",
+          "observationdate": "datetime64[ns]",
+          "rainfall": "float64",
+          "rain_unit": "object",
+          "temperature": "float64",
+          "temperature_unit": "object"
+        }
+      }
+    },
+    "ingested_Station Region.csv": {
+      "stage": "ingestion",
+      "source": "/Users/siya/Desktop/EnAI/data/raw/Station Region.csv",
+      "timestamp": "2026-02-06T00:33:27.337133",
+      "stats": {
+        "row_count": 800,
+        "column_count": 3,
+        "columns": [
+          "stationcode",
+          "region",
+          "region_type"
+        ],
+        "memory_usage_mb": 0.1238861083984375,
+        "missing_values": {
+          "stationcode": 0,
+          "region": 0,
+          "region_type": 0
+        },
+        "dtypes": {
+          "stationcode": "object",
+          "region": "object",
+          "region_type": "object"
+        }
+      }
+    },
+    "ingested_Activity Logs.csv": {
+      "stage": "ingestion",
+      "source": "/Users/siya/Desktop/EnAI/data/raw/Activity Logs.csv",
+      "timestamp": "2026-02-06T00:33:27.377343",
+      "stats": {
+        "row_count": 30000,
+        "column_count": 5,
+        "columns": [
+          "region",
+          "activitydate",
+          "croptype",
+          "irrigationhours",
+          "fertilizer_amount"
+        ],
+        "memory_usage_mb": 3.799567222595215,
+        "missing_values": {
+          "region": 0,
+          "activitydate": 20029,
+          "croptype": 0,
+          "irrigationhours": 3039,
+          "fertilizer_amount": 4476
+        },
+        "dtypes": {
+          "region": "object",
+          "activitydate": "datetime64[ns]",
+          "croptype": "object",
+          "irrigationhours": "float64",
+          "fertilizer_amount": "float64"
+        }
+      }
+    },
+    "ingested_Reference Units.csv": {
+      "stage": "ingestion",
+      "source": "/Users/siya/Desktop/EnAI/data/raw/Reference Units.csv",
+      "timestamp": "2026-02-06T00:33:27.466500",
+      "stats": {
+        "row_count": 4,
+        "column_count": 3,
+        "columns": [
+          "unit",
+          "standard_unit",
+          "conversion_factor"
+        ],
+        "memory_usage_mb": 0.0005321502685546875,
+        "missing_values": {
+          "unit": 0,
+          "standard_unit": 1,
+          "conversion_factor": 1
+        },
+        "dtypes": {
+          "unit": "object",
+          "standard_unit": "object",
+          "conversion_factor": "float64"
+        }
+      }
+    }
+  }
+}
