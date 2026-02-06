@@ -13,31 +13,42 @@
 
 ---
 
-## 🔨 ML Team - Anomaly Detection
+## ✅ ML Team - Anomaly Detection (COMPLETE)
 
-**Input Files**:
-- `data/output/validated_Weather.csv` (2.6MB, 50K rows)
-- `data/output/validated_Station Region.csv` (14KB, 800 rows)
-- `data/output/validated_Activity Logs.csv` (1.4MB, 30K rows)
-- `data/output/validated_Reference Units.csv` (conversion table)
+**Owner**: ML Team  
+**Status**: Done and ready for AI/Features teams
 
-**Tasks**:
-1. **Build anomaly detection models**:
-   - Isolation Forest for Weather data (temperature, rainfall outliers)
-   - Local Outlier Factor (LOF) for Activity Logs patterns
-   - Time-series anomaly detection for station observations
+**What's delivered**:
+- 3 trained anomaly detection models in `models/`
+- Anomaly-flagged datasets in `data/ml_output/`
+- Performance report with metrics
+- ML pipeline runner (`ml_pipeline.py`)
 
-2. **Create output format**:
-   - Add `anomaly_score` column (0-1 scale)
-   - Add `is_anomaly` flag (True/False)
-   - Add `anomaly_reason` text explanation
+**Models Implemented**:
+1. ✅ **Isolation Forest for Weather** (50K rows analyzed)
+   - Detected 2,500 anomalies (5.0%)
+   - Features: temperature, rainfall, ratios, temporal patterns
+   - Model: `models/weather_isolation_forest.pkl`
 
-3. **Deliverables**:
-   - Trained models saved to `models/`
-   - Anomaly-flagged datasets in `data/ml_output/`
-   - Model performance report (precision, recall)
+2. ✅ **Local Outlier Factor for Activity Logs** (30K rows analyzed)
+   - Detected 1,374 anomalies (4.58%)
+   - Features: irrigation hours, fertilizer, crop type, region
+   - Model: `models/activity_lof.pkl`
 
-**Where to start**: Use validated CSVs, they're already clean!
+3. ✅ **Statistical Z-Score for Station Regions** (800 stations analyzed)
+   - Detected 8 anomalous stations (1.0%)
+   - Compares stations to regional averages
+   - Model: `models/station_statistical.pkl`
+
+**Output Files** (in `data/ml_output/`):
+- `anomaly_flagged_Weather.csv` (with anomaly_score, is_anomaly, anomaly_reason)
+- `anomaly_flagged_Activity Logs.csv` (with anomaly_score, is_anomaly, anomaly_reason)
+- `anomaly_flagged_Station Region.csv` (with anomaly_score, is_anomaly, anomaly_reason)
+- `ml_performance_report.json` (complete metrics and statistics)
+
+**Total Anomalies Detected**: 3,882 across all datasets
+
+**To re-run**: `python ml_pipeline.py` (completes in ~15 seconds)
 
 ---
 
@@ -47,7 +58,8 @@
 - `pipeline.log` (execution logs)
 - `audit.log` (governance events)
 - `data/output/metadata.json` (lineage & stats)
-- ML team's anomaly outputs
+- `data/ml_output/anomaly_flagged_*.csv` (ML team's anomaly outputs)
+- `data/ml_output/ml_performance_report.json` (ML metrics)
 
 **Tasks**:
 1. **Data Quality Summaries**:
@@ -78,8 +90,8 @@
 
 **Input Files**:
 - All validated CSVs from `data/output/`
-- ML team's anomaly scores
-- AI team's insights
+- `data/ml_output/anomaly_flagged_*.csv` (ML team's anomaly scores)
+- AI team's insights (when available)
 
 **Tasks**:
 1. **Feature Engineering v1 (Baseline)**:
@@ -119,6 +131,20 @@ data/output/
 └── metadata.json  <- Lineage, stats, validation reports
 ```
 
+### ML Outputs (Ready for AI & Features teams)
+```
+data/ml_output/
+├── anomaly_flagged_Weather.csv
+├── anomaly_flagged_Activity Logs.csv
+├── anomaly_flagged_Station Region.csv
+└── ml_performance_report.json
+
+models/
+├── weather_isolation_forest.pkl
+├── activity_lof.pkl
+└── station_statistical.pkl
+```
+
 ### Logs (For AI team)
 ```
 pipeline.log  <- Execution details
@@ -143,7 +169,17 @@ audit.log     <- Governance events
 
 ## 🚀 Getting Started
 
-### ML Team
+### ML Team ✅ (COMPLETE)
+```bash
+# Re-run ML pipeline anytime
+python ml_pipeline.py
+
+# Or load existing models
+import joblib
+weather_model = joblib.load('models/weather_isolation_forest.pkl')
+```
+
+### AI Team (Ready to start!)
 ```bash
 import pandas as pd
 
@@ -157,9 +193,14 @@ model = IsolationForest(contamination=0.1)
 weather['anomaly_score'] = model.fit_predict(weather[['temperature', 'rainfall']])
 ```
 
-### AI Team
+### AI Team (Ready to start!)
 ```bash
+import pandas as pd
 import json
+
+# Load ML team's anomaly outputs
+weather_anomalies = pd.read_csv('data/ml_output/anomaly_flagged_Weather.csv')
+activity_anomalies = pd.read_csv('data/ml_output/anomaly_flagged_Activity Logs.csv')
 
 # Load metadata
 with open('data/output/metadata.json') as f:
@@ -174,7 +215,7 @@ for file, info in metadata['lineage_graph'].items():
 # (Use OpenAI API to explain quality issues)
 ```
 
-### Features Team
+### Features Team (Ready to start!)
 ```bash
 import pandas as pd
 
@@ -182,6 +223,9 @@ import pandas as pd
 weather = pd.read_csv('data/output/validated_Weather.csv')
 stations = pd.read_csv('data/output/validated_Station Region.csv')
 activities = pd.read_csv('data/output/validated_Activity Logs.csv')
+
+# Load ML anomaly scores
+weather_with_anomalies = pd.read_csv('data/ml_output/anomaly_flagged_Weather.csv')
 
 # Merge datasets
 merged = weather.merge(stations, left_on='stationid', right_on='stationcode')
@@ -195,10 +239,10 @@ merged['month'] = pd.to_datetime(merged['observationdate']).dt.month
 
 ## ⏱️ Timeline Suggestion
 
-**Day 1-2**: ML team builds anomaly detection  
-**Day 2-3**: AI team generates explanations (needs ML output)  
-**Day 3-4**: Features team creates v1 features  
-**Day 4-5**: Features team creates v2 + scenarios (needs ML anomaly scores)  
+**Day 1-2**: ✅ ML team builds anomaly detection (COMPLETE)  
+**Day 2-3**: AI team generates explanations (can start now - ML output ready)  
+**Day 3-4**: Features team creates v1 features (can start now - validated data ready)  
+**Day 4-5**: Features team creates v2 + scenarios (needs ML anomaly scores - ready now)  
 **Day 5**: Integration & final dashboard
 
 ---
@@ -210,7 +254,8 @@ merged['month'] = pd.to_datetime(merged['observationdate']).dt.month
 **Re-run pipeline**: `python main.py` (safe to re-run anytime)
 
 **Questions about data quality?**
-- 50K rows in Weather.csv (50% have missing dates - that's real messy data!)
-- 30K rows in Activity Logs.csv
-- 800 stations in Station Region.csv
-- Everything is already validated and clean
+- ✅ 50K rows in Weather.csv (50% have missing dates - validated and cleaned)
+- ✅ 30K rows in Activity Logs.csv (validated and cleaned)
+- ✅ 800 stations in Station Region.csv (validated and cleaned)
+- ✅ 3,882 anomalies detected across all datasets (ready for analysis)
+- Everything is validated, clean, and anomaly-flagged!

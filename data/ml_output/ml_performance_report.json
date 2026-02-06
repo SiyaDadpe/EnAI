@@ -1,0 +1,79 @@
+{
+  "pipeline_metadata": {
+    "generated_at": "2026-02-06T12:07:47.793595",
+    "ml_pipeline_version": "1.0",
+    "team": "ML Team - Anomaly Detection"
+  },
+  "models": {
+    "weather": {
+      "model_type": "Isolation Forest",
+      "algorithm": "Isolation Forest",
+      "contamination": 0.05,
+      "n_features": 5,
+      "features": [
+        "temperature",
+        "rainfall",
+        "temp_rain_ratio",
+        "month",
+        "day_of_year"
+      ]
+    },
+    "activity": {
+      "model_type": "Local Outlier Factor",
+      "algorithm": "Local Outlier Factor",
+      "contamination": 0.05,
+      "n_neighbors": 20,
+      "n_features": 8,
+      "features": [
+        "irrigationhours",
+        "fertilizer_amount",
+        "croptype_encoded",
+        "region_encoded",
+        "fertilizer_per_hour",
+        "month",
+        "day_of_week",
+        "day_of_month"
+      ]
+    },
+    "station": {
+      "model_type": "Statistical (Z-score)",
+      "algorithm": "Statistical Z-Score",
+      "z_threshold": 3.0,
+      "n_regions": 7
+    }
+  },
+  "performance": {
+    "weather": {
+      "total_samples": 50000,
+      "anomalies_detected": 2500,
+      "anomaly_rate": 0.05,
+      "mean_anomaly_score": 0.18152832230548435
+    },
+    "activity": {
+      "total_samples": 30000,
+      "anomalies_detected": 1374,
+      "anomaly_rate": 0.0458,
+      "mean_anomaly_score": 0.012182975556833224
+    },
+    "station": {
+      "total_samples": 800,
+      "anomalies_detected": 8,
+      "anomaly_rate": 0.01,
+      "mean_anomaly_score": 0.23618438361167793
+    }
+  },
+  "summary": {
+    "total_datasets_processed": 3,
+    "total_anomalies_detected": 3882,
+    "output_files": [
+      "anomaly_flagged_Weather.csv",
+      "anomaly_flagged_Activity Logs.csv",
+      "anomaly_flagged_Station Region.csv"
+    ],
+    "model_files": [
+      "weather_isolation_forest.pkl",
+      "activity_lof.pkl",
+      "station_statistical.pkl"
+    ]
+  }
+}
