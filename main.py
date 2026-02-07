@@ -21,6 +21,7 @@ WHY: Single entry point makes the pipeline easy to run, test, and schedule.
 
 import sys
 import logging
+import os
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Any
@@ -388,10 +389,41 @@ def main():
     """
     # Setup logging
     setup_logging()
+
+    # Load .env once (optional) so AI toggles can be set there.
+    try:
+        from ai_insights.config import load_env
+
+        load_env(PROJECT_ROOT)
+    except Exception:
+        pass
     
     # Create and run pipeline
     pipeline = DataPipeline()
     pipeline.run()
+
+    # Optional: generate AI explanations PDF/JSON after pipeline run.
+    # Controlled via env var so existing behavior stays the same unless enabled.
+    if os.getenv("AI_REPORT_ON_RUN", "").strip().lower() in {"1", "true", "yes"}:
+        try:
+            from ai_insights.generate_pdf_report import generate
+
+            json_path, pdf_path = generate()
+            logger.info(f"AI report generated: {pdf_path}")
+            logger.info(f"AI report JSON: {json_path}")
+        except Exception as e:
+            logger.error(f"AI report generation failed: {e}", exc_info=True)
+
+    # Optional: auto-launch interactive dashboard
+    if os.getenv("AI_DASHBOARD_ON_RUN", "").strip().lower() in {"1", "true", "yes"}:
+        try:
+            from ai_insights.launch_dashboard import launch_dashboard
+
+            proc = launch_dashboard(PROJECT_ROOT)
+            port = os.getenv("AI_DASHBOARD_PORT", "8501")
+            logger.info(f"Streamlit dashboard started (PID={proc.pid}) at http://localhost:{port}")
+        except Exception as e:
+            logger.error(f"Dashboard launch failed: {e}", exc_info=True)
 
 
 if __name__ == "__main__":

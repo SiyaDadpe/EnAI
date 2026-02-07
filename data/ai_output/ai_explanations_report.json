@@ -1,0 +1,1503 @@
+{
+  "report_version": "1.0",
+  "generated_at": "2026-02-07T10:59:02.028979",
+  "inputs_present": {
+    "metadata": true,
+    "audit_events": 112,
+    "pipeline_log_chars": 186073,
+    "ml_performance": true,
+    "anomaly_datasets": [
+      "weather",
+      "activity",
+      "station"
+    ]
+  },
+  "data_quality": {
+    "datasets": [
+      {
+        "dataset": "ingested_Weather.csv",
+        "row_count": 50000,
+        "column_count": 6,
+        "missing_values": {
+          "stationid": 0,
+          "observationdate": 24920,
+          "rainfall": 4952,
+          "rain_unit": 9937,
+          "temperature": 2488,
+          "temperature_unit": 0
+        },
+        "missing_pct": {
+          "stationid": 0.0,
+          "observationdate": 49.84,
+          "rainfall": 9.9,
+          "rain_unit": 19.87,
+          "temperature": 4.98,
+          "temperature_unit": 0.0
+        },
+        "top_missing_columns": [
+          {
+            "column": "observationdate",
+            "missing_pct": 49.84
+          },
+          {
+            "column": "rain_unit",
+            "missing_pct": 19.87
+          },
+          {
+            "column": "rainfall",
+            "missing_pct": 9.9
+          },
+          {
+            "column": "temperature",
+            "missing_pct": 4.98
+          },
+          {
+            "column": "stationid",
+            "missing_pct": 0.0
+          }
+        ],
+        "dtypes": {
+          "stationid": "object",
+          "observationdate": "datetime64[ns]",
+          "rainfall": "float64",
+          "rain_unit": "object",
+          "temperature": "float64",
+          "temperature_unit": "object"
+        }
+      },
+      {
+        "dataset": "ingested_Station Region.csv",
+        "row_count": 800,
+        "column_count": 3,
+        "missing_values": {
+          "stationcode": 0,
+          "region": 0,
+          "region_type": 0
+        },
+        "missing_pct": {
+          "stationcode": 0.0,
+          "region": 0.0,
+          "region_type": 0.0
+        },
+        "top_missing_columns": [
+          {
+            "column": "stationcode",
+            "missing_pct": 0.0
+          },
+          {
+            "column": "region",
+            "missing_pct": 0.0
+          },
+          {
+            "column": "region_type",
+            "missing_pct": 0.0
+          }
+        ],
+        "dtypes": {
+          "stationcode": "object",
+          "region": "object",
+          "region_type": "object"
+        }
+      },
+      {
+        "dataset": "ingested_Activity Logs.csv",
+        "row_count": 30000,
+        "column_count": 5,
+        "missing_values": {
+          "region": 0,
+          "activitydate": 20029,
+          "croptype": 0,
+          "irrigationhours": 3039,
+          "fertilizer_amount": 4476
+        },
+        "missing_pct": {
+          "region": 0.0,
+          "activitydate": 66.76,
+          "croptype": 0.0,
+          "irrigationhours": 10.13,
+          "fertilizer_amount": 14.92
+        },
+        "top_missing_columns": [
+          {
+            "column": "activitydate",
+            "missing_pct": 66.76
+          },
+          {
+            "column": "fertilizer_amount",
+            "missing_pct": 14.92
+          },
+          {
+            "column": "irrigationhours",
+            "missing_pct": 10.13
+          },
+          {
+            "column": "region",
+            "missing_pct": 0.0
+          },
+          {
+            "column": "croptype",
+            "missing_pct": 0.0
+          }
+        ],
+        "dtypes": {
+          "region": "object",
+          "activitydate": "datetime64[ns]",
+          "croptype": "object",
+          "irrigationhours": "float64",
+          "fertilizer_amount": "float64"
+        }
+      },
+      {
+        "dataset": "ingested_Reference Units.csv",
+        "row_count": 4,
+        "column_count": 3,
+        "missing_values": {
+          "unit": 0,
+          "standard_unit": 1,
+          "conversion_factor": 1
+        },
+        "missing_pct": {
+          "unit": 0.0,
+          "standard_unit": 25.0,
+          "conversion_factor": 25.0
+        },
+        "top_missing_columns": [
+          {
+            "column": "standard_unit",
+            "missing_pct": 25.0
+          },
+          {
+            "column": "conversion_factor",
+            "missing_pct": 25.0
+          },
+          {
+            "column": "unit",
+            "missing_pct": 0.0
+          }
+        ],
+        "dtypes": {
+          "unit": "object",
+          "standard_unit": "object",
+          "conversion_factor": "float64"
+        }
+      }
+    ],
+    "pipeline_signals": {
+      "errors": [
+        "2026-02-07 06:48:20,523 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:20,523 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:20,531 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 06:48:20,531 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 06:48:21,026 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:21,027 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:21,030 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 06:48:21,032 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 06:48:21,365 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:21,367 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:21,368 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 06:48:21,368 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 06:48:21,635 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:21,635 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 06:48:21,641 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 06:48:21,641 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:24,763 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:24,782 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:24,785 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 09:49:24,786 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:25,334 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:25,334 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:25,338 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 09:49:25,338 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:25,702 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:25,702 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:25,702 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 09:49:25,706 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:25,993 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:25,995 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:25,997 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 09:49:25,997 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:29,835 - __main__ - ERROR - AI report generation failed: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}",
+        "2026-02-07 09:49:51,077 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:51,084 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:51,085 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 09:49:51,085 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:51,613 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:51,613 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:51,617 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 09:49:51,622 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:51,948 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:51,948 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:51,953 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 09:49:51,953 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:49:52,247 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:52,251 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:49:52,253 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 09:49:52,253 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:52:39,751 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:39,758 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:39,759 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 09:52:39,762 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:52:40,337 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:40,338 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:40,338 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 09:52:40,341 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:52:40,646 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:40,647 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:40,647 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 09:52:40,650 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:52:40,914 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:40,915 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:52:40,917 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 09:52:40,917 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:57:31,916 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:31,921 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:31,921 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 09:57:31,924 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:57:32,436 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:32,437 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:32,440 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 09:57:32,440 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:57:32,783 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:32,783 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:32,787 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 09:57:32,788 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 09:57:33,077 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:33,080 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 09:57:33,080 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 09:57:33,084 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:05:58,055 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:58,059 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:58,062 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 10:05:58,063 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:05:58,546 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:58,547 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:58,550 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 10:05:58,552 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:05:58,882 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:58,884 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:58,886 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 10:05:58,887 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:05:59,144 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:59,146 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:05:59,147 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 10:05:59,148 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:57:08,930 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:08,943 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:08,949 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 10:57:08,949 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:57:09,484 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:09,485 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:09,487 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 10:57:09,489 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:57:09,796 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:09,798 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:09,798 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 10:57:09,801 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:57:10,080 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:10,083 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:57:10,084 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 10:57:10,084 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:59:00,362 - __main__ - ERROR - Failed to validate Weather.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:00,367 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:00,368 - __main__ - ERROR - Failed to filter Weather.csv: 'valid_rows'",
+        "2026-02-07 10:59:00,371 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:59:00,912 - __main__ - ERROR - Failed to validate Station Region.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:00,913 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:00,916 - __main__ - ERROR - Failed to filter Station Region.csv: 'valid_rows'",
+        "2026-02-07 10:59:00,916 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:59:01,250 - __main__ - ERROR - Failed to validate Activity Logs.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:01,250 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:01,250 - __main__ - ERROR - Failed to filter Activity Logs.csv: 'valid_rows'",
+        "2026-02-07 10:59:01,256 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'",
+        "2026-02-07 10:59:01,517 - __main__ - ERROR - Failed to validate Reference Units.csv: Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:01,518 - governance.audit_logger - ERROR - Audit: Error logged - Object of type Series is not JSON serializable",
+        "2026-02-07 10:59:01,520 - __main__ - ERROR - Failed to filter Reference Units.csv: 'valid_rows'",
+        "2026-02-07 10:59:01,520 - governance.audit_logger - ERROR - Audit: Error logged - 'valid_rows'"
+      ],
+      "warnings": [
+        "2026-02-07 06:48:20,386 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 06:48:20,396 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 06:48:20,408 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 06:48:20,442 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 06:48:20,444 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 06:48:20,464 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 06:48:20,507 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 06:48:20,519 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 06:48:20,521 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 06:48:21,008 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 06:48:21,014 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 06:48:21,299 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 06:48:21,308 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 06:48:21,320 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 06:48:21,331 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 06:48:21,356 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 06:48:21,362 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:49:24,582 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 09:49:24,595 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 09:49:24,615 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:49:24,663 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:49:24,665 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:49:24,686 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 09:49:24,746 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:49:24,759 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:49:24,761 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:49:25,317 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 09:49:25,323 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 09:49:25,641 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:49:25,648 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 09:49:25,656 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:49:25,669 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 09:49:25,691 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:49:25,698 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:49:50,903 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 09:49:50,914 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 09:49:50,934 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:49:50,972 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:49:50,975 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:49:50,993 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 09:49:51,053 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:49:51,065 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:49:51,065 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:49:51,597 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 09:49:51,601 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 09:49:51,878 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:49:51,892 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 09:49:51,902 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:49:51,912 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 09:49:51,935 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:49:51,944 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:52:39,600 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 09:52:39,614 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 09:52:39,628 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:52:39,663 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:52:39,666 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:52:39,684 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 09:52:39,735 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:52:39,744 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:52:39,749 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:52:40,236 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 09:52:40,308 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 09:52:40,586 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:52:40,596 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 09:52:40,604 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:52:40,612 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 09:52:40,637 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:52:40,638 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:57:31,749 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 09:57:31,758 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 09:57:31,779 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:57:31,817 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:57:31,817 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:57:31,841 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 09:57:31,899 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 09:57:31,911 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 09:57:31,911 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 09:57:32,407 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 09:57:32,411 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 09:57:32,707 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:57:32,725 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 09:57:32,733 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 09:57:32,750 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 09:57:32,770 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 09:57:32,779 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 10:05:57,895 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 10:05:57,904 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 10:05:57,922 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 10:05:57,960 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 10:05:57,961 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 10:05:57,983 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 10:05:58,041 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 10:05:58,051 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 10:05:58,052 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 10:05:58,527 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 10:05:58,534 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 10:05:58,818 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 10:05:58,829 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 10:05:58,836 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 10:05:58,849 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 10:05:58,871 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 10:05:58,877 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 10:57:08,774 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 10:57:08,784 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 10:57:08,801 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 10:57:08,839 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 10:57:08,839 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 10:57:08,865 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 10:57:08,913 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 10:57:08,926 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 10:57:08,926 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 10:57:09,464 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 10:57:09,472 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 10:57:09,730 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 10:57:09,744 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 10:57:09,750 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 10:57:09,761 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 10:57:09,784 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 10:57:09,790 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 10:59:00,217 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']",
+        "2026-02-07 10:59:00,229 - validation.schema_validator - WARNING - Found 2488 rows with type validation failures",
+        "2026-02-07 10:59:00,247 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 10:59:00,281 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 10:59:00,284 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 10:59:00,302 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete",
+        "2026-02-07 10:59:00,346 - validation.quality_checker - WARNING - Found 29 rows with >50% missing values",
+        "2026-02-07 10:59:00,358 - validation.quality_checker - WARNING - Required field 'observationdate' has 24920 null values",
+        "2026-02-07 10:59:00,358 - validation.quality_checker - WARNING - Required field 'temperature' has 2488 null values",
+        "2026-02-07 10:59:00,892 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']",
+        "2026-02-07 10:59:00,900 - validation.quality_checker - WARNING - Found 82 exact duplicate rows (action: flag)",
+        "2026-02-07 10:59:01,168 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 10:59:01,179 - validation.quality_checker - WARNING - Found 277 exact duplicate rows (action: flag)",
+        "2026-02-07 10:59:01,187 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values",
+        "2026-02-07 10:59:01,205 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete",
+        "2026-02-07 10:59:01,233 - validation.quality_checker - WARNING - Found 277 rows with >50% missing values",
+        "2026-02-07 10:59:01,245 - validation.quality_checker - WARNING - Required field 'activitydate' has 20029 null values"
+      ],
+      "required_column_completeness": [
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 06:48:20,464 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 06:48:21,331 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        },
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 09:49:24,686 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 09:49:25,669 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        },
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 09:49:50,993 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 09:49:51,912 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        },
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 09:52:39,684 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 09:52:40,612 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        },
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 09:57:31,841 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 09:57:32,750 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        },
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 10:05:57,983 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 10:05:58,849 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        },
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 10:57:08,865 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 10:57:09,761 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        },
+        {
+          "column": "observationdate",
+          "completeness_pct": 50.2,
+          "raw": "2026-02-07 10:59:00,302 - validation.quality_checker - WARNING - Required column 'observationdate' is only 50.2% complete"
+        },
+        {
+          "column": "activitydate",
+          "completeness_pct": 33.2,
+          "raw": "2026-02-07 10:59:01,205 - validation.quality_checker - WARNING - Required column 'activitydate' is only 33.2% complete"
+        }
+      ],
+      "duplicate_key_warnings": [
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 06:48:20,386 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 06:48:21,008 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        },
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 09:49:24,582 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 09:49:25,317 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        },
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 09:49:50,903 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 09:49:51,597 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        },
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 09:52:39,600 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 09:52:40,236 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        },
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 09:57:31,749 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 09:57:32,407 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        },
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 10:05:57,895 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 10:05:58,527 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        },
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 10:57:08,774 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 10:57:09,464 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        },
+        {
+          "duplicate_rows": 29008,
+          "keys": "'stationid', 'observationdate'",
+          "raw": "2026-02-07 10:59:00,217 - validation.schema_validator - WARNING - Found 29008 rows with duplicate keys on ['stationid', 'observationdate']"
+        },
+        {
+          "duplicate_rows": 680,
+          "keys": "'stationcode'",
+          "raw": "2026-02-07 10:59:00,892 - validation.schema_validator - WARNING - Found 680 rows with duplicate keys on ['stationcode']"
+        }
+      ],
+      "validation_summary": [
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 06:48:20,523 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 06:48:21,023 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 06:48:21,362 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 06:48:21,635 - __main__ - INFO - Validation: 4/4 rows passed"
+        },
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 09:49:24,763 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 09:49:25,332 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 09:49:25,701 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:49:25,991 - __main__ - INFO - Validation: 4/4 rows passed"
+        },
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 09:49:51,071 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 09:49:51,612 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 09:49:51,944 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:49:52,245 - __main__ - INFO - Validation: 4/4 rows passed"
+        },
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 09:52:39,750 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 09:52:40,335 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 09:52:40,644 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:52:40,912 - __main__ - INFO - Validation: 4/4 rows passed"
+        },
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 09:57:31,911 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 09:57:32,431 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 09:57:32,779 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:57:33,077 - __main__ - INFO - Validation: 4/4 rows passed"
+        },
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 10:05:58,054 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 10:05:58,544 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 10:05:58,880 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 10:05:59,142 - __main__ - INFO - Validation: 4/4 rows passed"
+        },
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 10:57:08,926 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 10:57:09,483 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 10:57:09,796 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 10:57:10,080 - __main__ - INFO - Validation: 4/4 rows passed"
+        },
+        {
+          "passed": 19903,
+          "total": 50000,
+          "raw": "2026-02-07 10:59:00,362 - __main__ - INFO - Validation: 19903/50000 rows passed"
+        },
+        {
+          "passed": 120,
+          "total": 800,
+          "raw": "2026-02-07 10:59:00,910 - __main__ - INFO - Validation: 120/800 rows passed"
+        },
+        {
+          "passed": 30000,
+          "total": 30000,
+          "raw": "2026-02-07 10:59:01,247 - __main__ - INFO - Validation: 30000/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 10:59:01,515 - __main__ - INFO - Validation: 4/4 rows passed"
+        }
+      ],
+      "quality_summary": [
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 06:48:20,523 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 06:48:21,024 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 06:48:21,365 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 06:48:21,635 - __main__ - INFO - Quality: 4/4 rows passed"
+        },
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 09:49:24,763 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 09:49:25,332 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 09:49:25,701 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:49:25,993 - __main__ - INFO - Quality: 4/4 rows passed"
+        },
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 09:49:51,073 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 09:49:51,613 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 09:49:51,944 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:49:52,247 - __main__ - INFO - Quality: 4/4 rows passed"
+        },
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 09:52:39,751 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 09:52:40,335 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 09:52:40,644 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:52:40,912 - __main__ - INFO - Quality: 4/4 rows passed"
+        },
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 09:57:31,915 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 09:57:32,431 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 09:57:32,779 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 09:57:33,077 - __main__ - INFO - Quality: 4/4 rows passed"
+        },
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 10:05:58,054 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 10:05:58,545 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 10:05:58,881 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 10:05:59,143 - __main__ - INFO - Quality: 4/4 rows passed"
+        },
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 10:57:08,929 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 10:57:09,483 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 10:57:09,796 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 10:57:10,080 - __main__ - INFO - Quality: 4/4 rows passed"
+        },
+        {
+          "passed": 23801,
+          "total": 50000,
+          "raw": "2026-02-07 10:59:00,362 - __main__ - INFO - Quality: 23801/50000 rows passed"
+        },
+        {
+          "passed": 718,
+          "total": 800,
+          "raw": "2026-02-07 10:59:00,910 - __main__ - INFO - Quality: 718/800 rows passed"
+        },
+        {
+          "passed": 9971,
+          "total": 30000,
+          "raw": "2026-02-07 10:59:01,247 - __main__ - INFO - Quality: 9971/30000 rows passed"
+        },
+        {
+          "passed": 4,
+          "total": 4,
+          "raw": "2026-02-07 10:59:01,515 - __main__ - INFO - Quality: 4/4 rows passed"
+        }
+      ]
+    },
+    "narrative": {
+      "mode": "gemini",
+      "model": "gemini-2.5-flash",
+      "text": "*   **Critical Missing Date Data:** The `ingested_Weather.csv` dataset has 24920 (49.84%) missing values in its required `observationdate` column, and `ingested_Activity Logs.csv` has 20029 (66.76%) missing values in its required `activitydate` column.\n*   **High Duplicate Records:** `ingested_Weather.csv` contains 29008 duplicate rows on `stationid` and `observationdate`, while `ingested_Station Region.csv` has 680 duplicate rows out of 800 based on `stationcode`.\n*   **Additional Missing Values:**\n    *   `ingested_Weather.csv` also suffers from 19.87% missing `rain_unit`, 9.9% missing `rainfall`, and 4.98% missing `temperature`.\n    *   `ingested_Activity Logs.csv` has 14.92% missing `fertilizer_amount` and 10.13% missing `irrigationhours`.\n    *   `ingested_Reference Units.csv` shows 25.0% missing values for both `standard_unit` and `conversion_factor`.\n*   **Data Processing Errors:** Pipeline logs indicate errors during validation and filtering for `ingested_Weather.csv` and `ingested_Station Region.csv`."
+    }
+  },
+  "anomalies": {
+    "datasets": {
+      "weather": {
+        "total_rows": 50000,
+        "anomalies": 2500,
+        "top_anomalies": [
+          {
+            "anomaly_score": 1.0,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 1.000)",
+            "stationid": "S346",
+            "observationdate": "2023-01-30",
+            "temperature": 44.27433119318408,
+            "rainfall": 0.2107320531999024
+          },
+          {
+            "anomaly_score": 0.9944085134645024,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.994)",
+            "stationid": "S371",
+            "observationdate": "2023-01-29",
+            "temperature": 43.39121230910064,
+            "rainfall": 0.0377894947559187
+          },
+          {
+            "anomaly_score": 0.9801960979743932,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.980)",
+            "stationid": "S279",
+            "observationdate": "2023-01-03",
+            "temperature": 44.6328849454904,
+            "rainfall": 0.320070240060416
+          },
+          {
+            "anomaly_score": 0.956282083533104,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.956)",
+            "stationid": "S230",
+            "observationdate": "2023-01-13",
+            "temperature": 44.25379105105102,
+            "rainfall": 0.6265978202537825
+          },
+          {
+            "anomaly_score": 0.9464122842012416,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.946)",
+            "stationid": "S048",
+            "observationdate": "2023-01-04",
+            "temperature": 41.39940204267012,
+            "rainfall": 0.3525379908654646
+          },
+          {
+            "anomaly_score": 0.9453200163105692,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.945)",
+            "stationid": "S029",
+            "observationdate": "2023-01-23",
+            "temperature": 36.66343583144092,
+            "rainfall": 0.19959658228893
+          },
+          {
+            "anomaly_score": 0.9318224538344,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.932)",
+            "stationid": "S177",
+            "observationdate": "2023-01-16",
+            "temperature": null,
+            "rainfall": 0.012155707875
+          },
+          {
+            "anomaly_score": 0.9242496912563948,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.924)",
+            "stationid": "S178",
+            "observationdate": "2023-03-09",
+            "temperature": 41.82752106964189,
+            "rainfall": 0.1268993806264884
+          },
+          {
+            "anomaly_score": 0.9226296780688134,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.923)",
+            "stationid": "S079",
+            "observationdate": "2023-01-26",
+            "temperature": 43.07715441014209,
+            "rainfall": 0.5780416693747348
+          },
+          {
+            "anomaly_score": 0.9216290132797812,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.922)",
+            "stationid": "S065",
+            "observationdate": "2023-02-12",
+            "temperature": 44.61761693794386,
+            "rainfall": 0.5665099700109477
+          },
+          {
+            "anomaly_score": 0.918590204952232,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.919)",
+            "stationid": "S322",
+            "observationdate": "2023-02-24",
+            "temperature": 43.04585247271785,
+            "rainfall": 0.3283498396688455
+          },
+          {
+            "anomaly_score": 0.9183230081975796,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.918)",
+            "stationid": "S091",
+            "observationdate": "2023-02-05",
+            "temperature": 43.75493154912,
+            "rainfall": 0.5304204629156317
+          },
+          {
+            "anomaly_score": 0.915255909033796,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.915)",
+            "stationid": "S096",
+            "observationdate": "2023-01-29",
+            "temperature": 29.04482649834758,
+            "rainfall": 0.0814215737874657
+          },
+          {
+            "anomaly_score": 0.9150814373133052,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.915)",
+            "stationid": "S180",
+            "observationdate": "2023-02-02",
+            "temperature": 37.45784439722384,
+            "rainfall": 0.2994836239960941
+          },
+          {
+            "anomaly_score": 0.9023722814541588,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier (score: 0.902)",
+            "stationid": "S382",
+            "observationdate": "2023-03-27",
+            "temperature": 40.1932915892948,
+            "rainfall": 0.2148421448766646
+          }
+        ]
+      },
+      "activity": {
+        "total_rows": 30000,
+        "anomalies": 1374,
+        "top_anomalies": [
+          {
+            "anomaly_score": 1.0,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier in local neighborhood (score: 1.000)",
+            "region": "unknown",
+            "activitydate": "2023-05-19",
+            "irrigationhours": null,
+            "fertilizer_amount": null
+          },
+          {
+            "anomaly_score": 0.9144864161082896,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": 5.617074151757526,
+            "fertilizer_amount": null
+          },
+          {
+            "anomaly_score": 0.8850069927411767,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": 5.494239874267086,
+            "fertilizer_amount": null
+          },
+          {
+            "anomaly_score": 0.8394434125384006,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier in local neighborhood (score: 0.839)",
+            "region": "West ",
+            "activitydate": "2023-04-13",
+            "irrigationhours": null,
+            "fertilizer_amount": null
+          },
+          {
+            "anomaly_score": 0.7507359262456135,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 54.819635296717074
+          },
+          {
+            "anomaly_score": 0.7298198099896092,
+            "is_anomaly": true,
+            "anomaly_reason": "Statistical outlier in local neighborhood (score: 0.730)",
+            "region": "North",
+            "activitydate": "2023-06-14",
+            "irrigationhours": 5.985662848513651,
+            "fertilizer_amount": 49.89587826498891
+          },
+          {
+            "anomaly_score": 0.7140518567761128,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 47.205706233540326
+          },
+          {
+            "anomaly_score": 0.7031532912542942,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 47.56264329923287
+          },
+          {
+            "anomaly_score": 0.6979947089280887,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 47.59708376216747
+          },
+          {
+            "anomaly_score": 0.6884072933593138,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 53.84434558466699
+          },
+          {
+            "anomaly_score": 0.6750467457894269,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 47.91121894397728
+          },
+          {
+            "anomaly_score": 0.6710492042886356,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 46.58388735754332
+          },
+          {
+            "anomaly_score": 0.6670029772197156,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": 6.28348057344177,
+            "fertilizer_amount": null
+          },
+          {
+            "anomaly_score": 0.6648295090156671,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": null,
+            "fertilizer_amount": 53.35636851175523
+          },
+          {
+            "anomaly_score": 0.6545965900150728,
+            "is_anomaly": true,
+            "anomaly_reason": "Missing activity date",
+            "region": "unknown",
+            "activitydate": null,
+            "irrigationhours": 6.255334745872259,
+            "fertilizer_amount": 51.480647345912686
+          }
+        ]
+      },
+      "station": {
+        "total_rows": 800,
+        "anomalies": 8,
+        "top_anomalies": [
+          {
+            "anomaly_score": 0.7320895059031696,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 318)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": " north"
+          },
+          {
+            "anomaly_score": 0.725955803350194,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 314)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": "west"
+          },
+          {
+            "anomaly_score": 0.725955803350194,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 314)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": "west"
+          },
+          {
+            "anomaly_score": 0.6702197647320405,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 357)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": "unknown"
+          },
+          {
+            "anomaly_score": 0.6702197647320405,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 357)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": "unknown"
+          },
+          {
+            "anomaly_score": 0.6008538600591692,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 352)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": "SOUTH"
+          },
+          {
+            "anomaly_score": 0.6008538600591692,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 352)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": "SOUTH"
+          },
+          {
+            "anomaly_score": 0.6008538600591692,
+            "is_anomaly": true,
+            "anomaly_reason": "Unusual observation count (920 vs regional avg 352)",
+            "stationid": "S297",
+            "stationcode": "S297",
+            "region": "SOUTH"
+          }
+        ]
+      }
+    },
+    "narrative": {
+      "mode": "gemini",
+      "model": "gemini-2.5-flash",
+      "text": "Here are explanations for the representative anomalies, grouped by dataset:\n\n### Weather Dataset Anomalies\n\n1.  **Extreme High Temperature (e.g., Station S346, 2023-01-30, temperature: 44.27):**\n    This record is anomalous due to an extreme magnitude in the `temperature` reading. A temperature of 44.27 degrees (assuming Celsius, which is typical for weather data unless specified otherwise) in January is exceptionally high for most regions globally, indicating a potential sensor malfunction, an extreme heat event, or a data entry error.\n\n2.  **Missing Temperature Data (e.g., Station S177, 2023-01-16, temperature: NaN):**\n    This anomaly is characterized by a missing value (`NaN`) for the `temperature` field. This directly indicates a data quality issue where temperature data was not recorded or is invalid for this specific station and date, making the record incomplete.\n\n3.  **Extreme Low Temperature (e.g., Station S096, 2023-01-29, temperature: 29.04):**\n    This record highlights an extreme magnitude in `temperature` on the lower end, at 29.04 degrees. While not as high as the first example, if the typical climate for the station's location in January is significantly different, this could represent an unusually cold day or a possible sensor error, flagging it as an outlier.\n\n### Activity Dataset Anomalies\n\n1.  **Multiple Missing Key Metrics (e.g., region 'unknown', 2023-05-19, score 1.0):**\n    This record is highly anomalous because both critical activity metrics, `irrigationhours` and `fertilizer_amount`, are missing (`NaN`). This represents a severe data completeness issue, suggesting that no quantifiable activity data was recorded for this date, despite the record existing. The `region` being \"unknown\" further indicates poor data quality for this entry.\n\n2.  **Missing Activity Date (e.g., region 'unknown', activitydate: NaN, score 0.914):**\n    Several anomalies show a missing `activitydate` (`NaN`), such as this example where `irrigationhours` (5.617) is present but the `activitydate` is not. The absence of a date makes it impossible to correctly timestamp and contextualize the recorded activity, rendering the data partially invalid due to crucial temporal information being absent.\n\n3.  **Missing Activity Date and Irrigation Hours (e.g., region 'unknown', activitydate: NaN, irrigationhours: NaN, score 0.751):**\n    This anomaly demonstrates missing values for both `activitydate` and `irrigationhours` (`NaN`), while `fertilizer_amount` (54.819) is present. This indicates an incomplete record where key activity details and their temporal context are unavailable, making the `fertilizer_amount` data difficult to interpret or use effectively.\n\n4.  **Statistical Outlier with All Values Present (e.g., region 'North', 2023-06-14, score 0.730):**\n    This record from the \"North\" region on 2023-06-14 contains explicit values for `irrigationhours` (5.98) and `fertilizer_amount` (49.89), with no missing data. However, it is flagged as a \"Statistical outlier.\" This means that the combination or specific magnitudes of these values are highly unusual when compared to typical patterns for activities in the \"North\" region or for that time of year, even without apparent data quality issues like `NaN` or obvious extreme magnitudes.\n\n### Station Dataset Anomalies\n\n1.  **Unusually High Observation Count for Station S297 (e.g., all top anomalies):**\n    All the listed anomalies for the 'station' dataset point to `stationid: \"S297\"`. The consistent `anomaly_reason` across these entries is \"Unusual observation count (920 vs regional avg X)\". This clearly indicates that Station S297 has an extremely high number of recorded observations (920) compared to the regional averages (which range from 314 to 357). This extreme magnitude suggests either a highly active station, a misconfiguration in data collection, or a data aggregation error, consistently marking S297 as an outlier based on its volume of observations."
+    }
+  },
+  "decision_support": {
+    "narrative": {
+      "mode": "gemini",
+      "model": "gemini-2.5-flash",
+      "text": "Data Quality Actions\n- Prioritize investigation into the 'observationdate' column in 'Weather.csv' due to a critical 49.84% missing data rate, severely impacting data completeness.\n- Address the high percentage of missing 'activitydate' (66.76%) in 'Activity Logs.csv' to ensure proper tracking and analysis of agricultural activities.\n- Resolve pipeline errors preventing validation of 'Weather.csv' and 'Station Region.csv' due to \"Object of type Series is not JSON serializable,\" hindering data ingestion.\n- Improve data collection for 'rain_unit' (19.87% missing) and 'rainfall' (9.9% missing) in 'Weather.csv' to ensure complete environmental data.\n- Review missing 'fertilizer_amount' (14.92%) and 'irrigationhours' (10.13%) in 'Activity Logs.csv' to better understand and optimize resource usage.\n- Rectify the 25.0% missing 'standard_unit' and 'conversion_factor' in 'Reference Units.csv' to ensure accurate unit transformations.\n\nStation Maintenance\n- Immediately investigate station S297 due to its consistently \"Unusual observation count (920)\" compared to regional averages (e.g., 318 for 'north', 314 for 'west', 357 for 'unknown').\n- Verify the physical status and sensor calibration of station S297 to rule out equipment malfunction or misconfiguration, given it's listed across multiple regions with the same anomaly.\n- Cross-reference data from neighboring stations to determine if the high observation count for S297 is an isolated issue or part of a wider regional data anomaly.\n- Conduct a historical data audit for station S297 to identify the onset and duration of these unusual observation patterns.\n- Review data transmission protocols and regional assignments for station S297 given its repeated high anomaly scores.\n\nSuspicious Activity Patterns\n- Investigate the 5% anomaly rate in weather data (2500 anomalies out of 50000 rows) for potential sensor tampering or unusual environmental events.\n- Analyze the 4.58% anomaly rate in activity logs (1374 anomalies out of 30000 rows) to identify any unauthorized or irregular agricultural practices.\n- Correlate high missing data percentages for 'activitydate' (66.76%), 'fertilizer_amount' (14.92%), and 'irrigationhours' (10.13%) in 'Activity Logs.csv' with the activity anomaly rate.\n- Examine if significant missing 'observationdate' (49.84%), 'rain_unit' (19.87%), and 'rainfall' (9.9%) in 'Weather.csv' are linked to periods of weather data anomalies or deliberate data suppression.\n- Assess if the unusual observation count at station S297 (920 vs regional averages) contributes to the overall weather anomaly rate, potentially indicating data injection or faulty readings."
+    }
+  },
+  "audit": {
+    "events_total": 112,
+    "errors_total": 64,
+    "errors_sample": [
+      {
+        "event_type": "error",
+        "error_type": "TypeError",
+        "error_message": "Object of type Series is not JSON serializable",
+        "context": {
+          "stage": "validation",
+          "filename": "Weather.csv"
+        },
+        "timestamp": "2026-02-07T06:48:20.523448"
+      },
+      {
+        "event_type": "error",
+        "error_type": "KeyError",
+        "error_message": "'valid_rows'",
+        "context": {
+          "stage": "filtering",
+          "filename": "Weather.csv"
+        },
+        "timestamp": "2026-02-07T06:48:20.531490"
+      },
+      {
+        "event_type": "error",
+        "error_type": "TypeError",
+        "error_message": "Object of type Series is not JSON serializable",
+        "context": {
+          "stage": "validation",
+          "filename": "Station Region.csv"
+        },
+        "timestamp": "2026-02-07T06:48:21.027490"
+      },
+      {
+        "event_type": "error",
+        "error_type": "KeyError",
+        "error_message": "'valid_rows'",
+        "context": {
+          "stage": "filtering",
+          "filename": "Station Region.csv"
+        },
+        "timestamp": "2026-02-07T06:48:21.030096"
+      },
+      {
+        "event_type": "error",
+        "error_type": "TypeError",
+        "error_message": "Object of type Series is not JSON serializable",
+        "context": {
+          "stage": "validation",
+          "filename": "Activity Logs.csv"
+        },
+        "timestamp": "2026-02-07T06:48:21.365881"
+      },
+      {
+        "event_type": "error",
+        "error_type": "KeyError",
+        "error_message": "'valid_rows'",
+        "context": {
+          "stage": "filtering",
+          "filename": "Activity Logs.csv"
+        },
+        "timestamp": "2026-02-07T06:48:21.368802"
+      },
+      {
+        "event_type": "error",
+        "error_type": "TypeError",
+        "error_message": "Object of type Series is not JSON serializable",
+        "context": {
+          "stage": "validation",
+          "filename": "Reference Units.csv"
+        },
+        "timestamp": "2026-02-07T06:48:21.635771"
+      },
+      {
+        "event_type": "error",
+        "error_type": "KeyError",
+        "error_message": "'valid_rows'",
+        "context": {
+          "stage": "filtering",
+          "filename": "Reference Units.csv"
+        },
+        "timestamp": "2026-02-07T06:48:21.641241"
+      },
+      {
+        "event_type": "error",
+        "error_type": "TypeError",
+        "error_message": "Object of type Series is not JSON serializable",
+        "context": {
+          "stage": "validation",
+          "filename": "Weather.csv"
+        },
+        "timestamp": "2026-02-07T09:49:24.782224"
+      },
+      {
+        "event_type": "error",
+        "error_type": "KeyError",
+        "error_message": "'valid_rows'",
+        "context": {
+          "stage": "filtering",
+          "filename": "Weather.csv"
+        },
+        "timestamp": "2026-02-07T09:49:24.786593"
+      }
+    ]
+  },
+  "ml_performance": {
+    "pipeline_metadata": {
+      "generated_at": "2026-02-06T12:07:47.793595",
+      "ml_pipeline_version": "1.0",
+      "team": "ML Team - Anomaly Detection"
+    },
+    "models": {
+      "weather": {
+        "model_type": "Isolation Forest",
+        "algorithm": "Isolation Forest",
+        "contamination": 0.05,
+        "n_features": 5,
+        "features": [
+          "temperature",
+          "rainfall",
+          "temp_rain_ratio",
+          "month",
+          "day_of_year"
+        ]
+      },
+      "activity": {
+        "model_type": "Local Outlier Factor",
+        "algorithm": "Local Outlier Factor",
+        "contamination": 0.05,
+        "n_neighbors": 20,
+        "n_features": 8,
+        "features": [
+          "irrigationhours",
+          "fertilizer_amount",
+          "croptype_encoded",
+          "region_encoded",
+          "fertilizer_per_hour",
+          "month",
+          "day_of_week",
+          "day_of_month"
+        ]
+      },
+      "station": {
+        "model_type": "Statistical (Z-score)",
+        "algorithm": "Statistical Z-Score",
+        "z_threshold": 3.0,
+        "n_regions": 7
+      }
+    },
+    "performance": {
+      "weather": {
+        "total_samples": 50000,
+        "anomalies_detected": 2500,
+        "anomaly_rate": 0.05,
+        "mean_anomaly_score": 0.18152832230548435
+      },
+      "activity": {
+        "total_samples": 30000,
+        "anomalies_detected": 1374,
+        "anomaly_rate": 0.0458,
+        "mean_anomaly_score": 0.012182975556833224
+      },
+      "station": {
+        "total_samples": 800,
+        "anomalies_detected": 8,
+        "anomaly_rate": 0.01,
+        "mean_anomaly_score": 0.23618438361167793
+      }
+    },
+    "summary": {
+      "total_datasets_processed": 3,
+      "total_anomalies_detected": 3882,
+      "output_files": [
+        "anomaly_flagged_Weather.csv",
+        "anomaly_flagged_Activity Logs.csv",
+        "anomaly_flagged_Station Region.csv"
+      ],
+      "model_files": [
+        "weather_isolation_forest.pkl",
+        "activity_lof.pkl",
+        "station_statistical.pkl"
+      ]
+    }
+  }
+}

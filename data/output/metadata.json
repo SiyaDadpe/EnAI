@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "pipeline_start": "2026-02-06T00:33:27.075673",
-    "pipeline_end": "2026-02-06T00:33:27.468715"
+    "pipeline_start": "2026-02-07T10:58:59.747408",
+    "pipeline_end": "2026-02-07T10:59:01.524216"
   },
   "lineage_graph": {
     "ingested_Weather.csv": {
       "stage": "ingestion",
-      "source": "/Users/siya/Desktop/EnAI/data/raw/Weather.csv",
-      "timestamp": "2026-02-06T00:33:27.164875",
+      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Weather.csv",
+      "timestamp": "2026-02-07T10:59:00.181233",
       "stats": {
         "row_count": 50000,
         "column_count": 6,
@@ -19,7 +19,7 @@
           "temperature",
           "temperature_unit"
         ],
-        "memory_usage_mb": 8.522855758666992,
+        "memory_usage_mb": 9.591447830200195,
         "missing_values": {
           "stationid": 0,
           "observationdate": 24920,
@@ -40,8 +40,8 @@
     },
     "ingested_Station Region.csv": {
       "stage": "ingestion",
-      "source": "/Users/siya/Desktop/EnAI/data/raw/Station Region.csv",
-      "timestamp": "2026-02-06T00:33:27.337133",
+      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Station Region.csv",
+      "timestamp": "2026-02-07T10:59:00.892499",
       "stats": {
         "row_count": 800,
         "column_count": 3,
@@ -50,7 +50,7 @@
           "region",
           "region_type"
         ],
-        "memory_usage_mb": 0.1238861083984375,
+        "memory_usage_mb": 0.14219284057617188,
         "missing_values": {
           "stationcode": 0,
           "region": 0,
@@ -65,8 +65,8 @@
     },
     "ingested_Activity Logs.csv": {
       "stage": "ingestion",
-      "source": "/Users/siya/Desktop/EnAI/data/raw/Activity Logs.csv",
-      "timestamp": "2026-02-06T00:33:27.377343",
+      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Activity Logs.csv",
+      "timestamp": "2026-02-07T10:59:01.136552",
       "stats": {
         "row_count": 30000,
         "column_count": 5,
@@ -77,7 +77,7 @@
           "irrigationhours",
           "fertilizer_amount"
         ],
-        "memory_usage_mb": 3.799567222595215,
+        "memory_usage_mb": 4.257327079772949,
         "missing_values": {
           "region": 0,
           "activitydate": 20029,
@@ -96,8 +96,8 @@
     },
     "ingested_Reference Units.csv": {
       "stage": "ingestion",
-      "source": "/Users/siya/Desktop/EnAI/data/raw/Reference Units.csv",
-      "timestamp": "2026-02-06T00:33:27.466500",
+      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Reference Units.csv",
+      "timestamp": "2026-02-07T10:59:01.503728",
       "stats": {
         "row_count": 4,
         "column_count": 3,
@@ -106,7 +106,7 @@
           "standard_unit",
           "conversion_factor"
         ],
-        "memory_usage_mb": 0.0005321502685546875,
+        "memory_usage_mb": 0.0005817413330078125,
         "missing_values": {
           "unit": 0,
           "standard_unit": 1,
