@@ -2,7 +2,7 @@
 
 ## ✅ Data Engineering (COMPLETE)
 
-**Owner**: You  
+**Owner**: Siya  
 **Status**: Done and ready to use
 
 **What's delivered**:
@@ -15,7 +15,7 @@
 
 ## ✅ ML Team - Anomaly Detection (COMPLETE)
 
-**Owner**: ML Team  
+**Owner**: Ronit  
 **Status**: Done and ready for AI/Features teams
 
 **What's delivered**:
@@ -54,35 +54,32 @@
 
 ## 🤖 AI Team - Explanations & Insights
 
-**Input Files**:
-- `pipeline.log` (execution logs)
-- `audit.log` (governance events)
-- `data/output/metadata.json` (lineage & stats)
-- `data/ml_output/anomaly_flagged_*.csv` (ML team's anomaly outputs)
-- `data/ml_output/ml_performance_report.json` (ML metrics)
+**Owner**: Me, Myself and I
+**Status**: Done and fully integrated
 
-**Tasks**:
-1. **Data Quality Summaries**:
-   - Read validation reports from metadata.json
-   - Generate natural language summaries of data quality
-   - Example: "Weather dataset has 50% missing observation dates, mainly in Oct-Dec period"
+**What's delivered**:
+- Automated AI explanations report (PDF/JSON) in `data/ai_output/`
+- Interactive Streamlit dashboard (auto-launches after pipeline)
+- Alert system for critical anomalies
+- All explanations, summaries, and recommendations generated from pipeline artifacts and ML outputs
 
-2. **Anomaly Explanations**:
-   - Take ML team's flagged anomalies
-   - Use LLM to explain WHY they're anomalous
-   - Example: "Temperature of 85°C is anomalous because it exceeds normal range for this region"
+**How it works**:
+- Run `main.py` to execute the full pipeline, generate explanations, and launch the dashboard
+- Outputs:
+  - `data/ai_output/ai_explanations_report.pdf` (PDF)
+  - `data/ai_output/ai_explanations_report.json` (JSON)
+  - Streamlit dashboard at `http://localhost:8501` (shows quality, anomalies, decisions)
+  - Alerts in `data/ai_output/alerts.json` (optional)
 
-3. **Decision Support**:
-   - Recommend actions for data quality issues
-   - Suggest which stations need maintenance
-   - Identify suspicious activity patterns
+**API Setup**: Gemini/OpenAI API keys can be set in `.env` for LLM-powered explanations (optional)
 
-4. **Deliverables**:
-   - AI explanations report (PDF/JSON)
-   - Interactive dashboard showing insights
-   - Alert system for critical anomalies
+**To re-run**: `python main.py` (completes pipeline, explanations, dashboard)
 
-**API Setup**: You'll need OpenAI/Anthropic API keys
+**Example workflow**:
+1. Run `python main.py` (with `.env` toggles for AI features)
+2. Review PDF/JSON report in `data/ai_output/`
+3. Explore interactive dashboard (auto-launches)
+4. Alerts and recommendations available for downstream teams
 
 ---
 
