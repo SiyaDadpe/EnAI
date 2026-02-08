@@ -1,0 +1,325 @@
+{
+  "generated_at": "2026-02-08T10:51:58.830623",
+  "catalog_version": "1.0",
+  "features_by_version": {
+    "v1": [
+      "stationid",
+      "observationdate",
+      "rainfall",
+      "rain_unit",
+      "temperature",
+      "temperature_unit",
+      "stationcode",
+      "region",
+      "region_type",
+      "day_of_week",
+      "month",
+      "day_of_year",
+      "week_of_year",
+      "is_weekend",
+      "season",
+      "rainfall_7d_avg",
+      "rainfall_7d_std",
+      "temperature_7d_avg",
+      "temperature_7d_std"
+    ],
+    "v2": [
+      "activitydate",
+      "irrigationhours",
+      "fertilizer_amount",
+      "rainfall_irrigation_ratio",
+      "temp_irrigation_product",
+      "activity_intensity",
+      "weather_stress_index"
+    ]
+  },
+  "features_by_category": {
+    "Temporal": [
+      "day_of_week",
+      "month",
+      "day_of_year",
+      "week_of_year",
+      "is_weekend",
+      "season"
+    ],
+    "Cross-Dataset": [
+      "rainfall_irrigation_ratio",
+      "temp_irrigation_product",
+      "activity_intensity",
+      "weather_stress_index"
+    ]
+  },
+  "feature_details": {
+    "day_of_week": {
+      "category": "Temporal",
+      "version": "v1",
+      "description": "Day of week (0=Monday, 6=Sunday)",
+      "business_value": "Captures weekly patterns in weather and agricultural activities. Weekend vs weekday irrigation patterns differ significantly.",
+      "data_type": "integer",
+      "range": "0-6"
+    },
+    "month": {
+      "category": "Temporal",
+      "version": "v1",
+      "description": "Month of year (1-12)",
+      "business_value": "Seasonal patterns are critical for agriculture. Different crops have different growing seasons.",
+      "data_type": "integer",
+      "range": "1-12"
+    },
+    "day_of_year": {
+      "category": "Temporal",
+      "version": "v1",
+      "description": "Day of year (1-365/366)",
+      "business_value": "Captures annual cycles and specific date-based patterns (e.g., planting/harvest dates).",
+      "data_type": "integer",
+      "range": "1-366"
+    },
+    "week_of_year": {
+      "category": "Temporal",
+      "version": "v1",
+      "description": "Week of year (1-52/53)",
+      "business_value": "Weekly planning horizon for operations. Aligns with typical agricultural activity schedules.",
+      "data_type": "integer",
+      "range": "1-53"
+    },
+    "is_weekend": {
+      "category": "Temporal",
+      "version": "v1",
+      "description": "Binary flag for weekend (Saturday/Sunday)",
+      "business_value": "Labor costs and availability differ on weekends. Staff scheduling and operational planning.",
+      "data_type": "binary",
+      "values": [
+        0,
+        1
+      ]
+    },
+    "season": {
+      "category": "Temporal",
+      "version": "v1",
+      "description": "Season category (Spring, Summer, Autumn, Winter)",
+      "business_value": "High-level seasonal patterns for strategic planning. Different seasons require different resource allocation.",
+      "data_type": "categorical",
+      "values": [
+        "Spring",
+        "Summer",
+        "Autumn",
+        "Winter"
+      ]
+    },
+    "rainfall_irrigation_ratio": {
+      "category": "Cross-Dataset",
+      "version": "v2",
+      "description": "Ratio of rainfall to irrigation hours",
+      "business_value": "Identifies irrigation efficiency. High ratio means over-irrigation given rainfall. Cost savings opportunity.",
+      "data_type": "float",
+      "range": "0-inf"
+    },
+    "temp_irrigation_product": {
+      "category": "Cross-Dataset",
+      "version": "v2",
+      "description": "Temperature multiplied by irrigation hours",
+      "business_value": "Captures water evaporation rate. High temps + high irrigation = water waste.",
+      "data_type": "float",
+      "unit": "Celsius * hours"
+    },
+    "activity_intensity": {
+      "category": "Cross-Dataset",
+      "version": "v2",
+      "description": "Fertilizer amount divided by irrigation hours",
+      "business_value": "Fertilizer concentration metric. Too high = nutrient burn, too low = waste.",
+      "data_type": "float",
+      "unit": "kg/hour"
+    },
+    "weather_stress_index": {
+      "category": "Cross-Dataset",
+      "version": "v2",
+      "description": "Combined temperature and rainfall stress indicator",
+      "business_value": "Unified weather stress metric. High values trigger alerts for crop protection measures.",
+      "data_type": "float",
+      "range": "0-inf"
+    }
+  },
+  "statistics": {
+    "total_v1_features": 19,
+    "total_v2_features": 7,
+    "total_features": 26,
+    "categories": [
+      "Temporal",
+      "Cross-Dataset"
+    ],
+    "category_counts": {
+      "Temporal": 6,
+      "Cross-Dataset": 4
+    }
+  },
+  "governance": {
+    "generated_at": "2026-02-08T10:51:25.199201",
+    "versions": {
+      "v1": {
+        "completed_at": "2026-02-08T10:51:25.068208",
+        "output_files": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv"
+        ],
+        "total_features": 12,
+        "duration_seconds": 1.5759680271148682,
+        "status": "SUCCESS"
+      },
+      "v2": {
+        "completed_at": "2026-02-08T10:51:25.195423",
+        "output_files": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v2.csv"
+        ],
+        "total_features": 7,
+        "duration_seconds": 0.1272144317626953,
+        "status": "SUCCESS"
+      }
+    },
+    "lineage": {
+      "v1": [
+        {
+          "transformation": "temporal_features",
+          "timestamp": "2026-02-08T10:51:23.722144",
+          "inputs": [
+            "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Weather.csv"
+          ],
+          "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv",
+          "features_created": [
+            "is_weekend",
+            "season",
+            "day_of_week",
+            "month",
+            "day_of_year",
+            "week_of_year"
+          ],
+          "feature_count": 6,
+          "metadata": {
+            "row_count": 98941
+          }
+        },
+        {
+          "transformation": "rolling_statistics",
+          "timestamp": "2026-02-08T10:51:24.075713",
+          "inputs": [
+            "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Weather.csv"
+          ],
+          "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv",
+          "features_created": [
+            "rainfall_7d_std",
+            "rainfall_7d_avg",
+            "temperature_7d_std",
+            "temperature_7d_avg"
+          ],
+          "feature_count": 4,
+          "metadata": {
+            "row_count": 98941
+          }
+        }
+      ],
+      "v2": [
+        {
+          "transformation": "cross_dataset_features",
+          "timestamp": "2026-02-08T10:51:25.149574",
+          "inputs": [
+            "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv"
+          ],
+          "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v2.csv",
+          "features_created": [
+            "temp_irrigation_product",
+            "irrigationhours",
+            "activity_intensity",
+            "activitydate",
+            "rainfall_irrigation_ratio",
+            "weather_stress_index",
+            "fertilizer_amount"
+          ],
+          "feature_count": 7,
+          "metadata": {
+            "row_count": 1826
+          }
+        },
+        {
+          "transformation": "lag_features",
+          "timestamp": "2026-02-08T10:51:25.159268",
+          "inputs": [
+            "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv"
+          ],
+          "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v2.csv",
+          "features_created": [],
+          "feature_count": 0,
+          "metadata": {
+            "row_count": 1826
+          }
+        }
+      ]
+    },
+    "audit_log": [
+      {
+        "event": "pipeline_start",
+        "version": "v1",
+        "timestamp": "2026-02-08T10:51:23.497221",
+        "input_sources": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Weather.csv",
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Station Region.csv",
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Reference Units.csv"
+        ]
+      },
+      {
+        "event": "transformation",
+        "version": "v1",
+        "transformation": "temporal_features",
+        "timestamp": "2026-02-08T10:51:23.722144",
+        "features_created_count": 6
+      },
+      {
+        "event": "transformation",
+        "version": "v1",
+        "transformation": "rolling_statistics",
+        "timestamp": "2026-02-08T10:51:24.075713",
+        "features_created_count": 4
+      },
+      {
+        "event": "pipeline_complete",
+        "version": "v1",
+        "timestamp": "2026-02-08T10:51:25.068208",
+        "total_features": 12,
+        "duration_seconds": 1.5759680271148682
+      },
+      {
+        "event": "pipeline_start",
+        "version": "v2",
+        "timestamp": "2026-02-08T10:51:25.068208",
+        "input_sources": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv",
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Activity Logs.csv",
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\ml_output\\anomaly_flagged_weather.csv"
+        ]
+      },
+      {
+        "event": "transformation",
+        "version": "v2",
+        "transformation": "cross_dataset_features",
+        "timestamp": "2026-02-08T10:51:25.149574",
+        "features_created_count": 7
+      },
+      {
+        "event": "transformation",
+        "version": "v2",
+        "transformation": "lag_features",
+        "timestamp": "2026-02-08T10:51:25.159268",
+        "features_created_count": 0
+      },
+      {
+        "event": "pipeline_complete",
+        "version": "v2",
+        "timestamp": "2026-02-08T10:51:25.195423",
+        "total_features": 7,
+        "duration_seconds": 0.1272144317626953
+      }
+    ],
+    "summary": {
+      "total_versions": 2,
+      "total_transformations": 4,
+      "total_audit_events": 8
+    }
+  }
+}

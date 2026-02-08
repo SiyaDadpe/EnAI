@@ -1,0 +1,170 @@
+{
+  "generated_at": "2026-02-08T10:51:25.199201",
+  "versions": {
+    "v1": {
+      "completed_at": "2026-02-08T10:51:25.068208",
+      "output_files": [
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv"
+      ],
+      "total_features": 12,
+      "duration_seconds": 1.5759680271148682,
+      "status": "SUCCESS"
+    },
+    "v2": {
+      "completed_at": "2026-02-08T10:51:25.195423",
+      "output_files": [
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v2.csv"
+      ],
+      "total_features": 7,
+      "duration_seconds": 0.1272144317626953,
+      "status": "SUCCESS"
+    }
+  },
+  "lineage": {
+    "v1": [
+      {
+        "transformation": "temporal_features",
+        "timestamp": "2026-02-08T10:51:23.722144",
+        "inputs": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Weather.csv"
+        ],
+        "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv",
+        "features_created": [
+          "is_weekend",
+          "season",
+          "day_of_week",
+          "month",
+          "day_of_year",
+          "week_of_year"
+        ],
+        "feature_count": 6,
+        "metadata": {
+          "row_count": 98941
+        }
+      },
+      {
+        "transformation": "rolling_statistics",
+        "timestamp": "2026-02-08T10:51:24.075713",
+        "inputs": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Weather.csv"
+        ],
+        "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv",
+        "features_created": [
+          "rainfall_7d_std",
+          "rainfall_7d_avg",
+          "temperature_7d_std",
+          "temperature_7d_avg"
+        ],
+        "feature_count": 4,
+        "metadata": {
+          "row_count": 98941
+        }
+      }
+    ],
+    "v2": [
+      {
+        "transformation": "cross_dataset_features",
+        "timestamp": "2026-02-08T10:51:25.149574",
+        "inputs": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv"
+        ],
+        "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v2.csv",
+        "features_created": [
+          "temp_irrigation_product",
+          "irrigationhours",
+          "activity_intensity",
+          "activitydate",
+          "rainfall_irrigation_ratio",
+          "weather_stress_index",
+          "fertilizer_amount"
+        ],
+        "feature_count": 7,
+        "metadata": {
+          "row_count": 1826
+        }
+      },
+      {
+        "transformation": "lag_features",
+        "timestamp": "2026-02-08T10:51:25.159268",
+        "inputs": [
+          "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv"
+        ],
+        "output": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v2.csv",
+        "features_created": [],
+        "feature_count": 0,
+        "metadata": {
+          "row_count": 1826
+        }
+      }
+    ]
+  },
+  "audit_log": [
+    {
+      "event": "pipeline_start",
+      "version": "v1",
+      "timestamp": "2026-02-08T10:51:23.497221",
+      "input_sources": [
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Weather.csv",
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Station Region.csv",
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Reference Units.csv"
+      ]
+    },
+    {
+      "event": "transformation",
+      "version": "v1",
+      "transformation": "temporal_features",
+      "timestamp": "2026-02-08T10:51:23.722144",
+      "features_created_count": 6
+    },
+    {
+      "event": "transformation",
+      "version": "v1",
+      "transformation": "rolling_statistics",
+      "timestamp": "2026-02-08T10:51:24.075713",
+      "features_created_count": 4
+    },
+    {
+      "event": "pipeline_complete",
+      "version": "v1",
+      "timestamp": "2026-02-08T10:51:25.068208",
+      "total_features": 12,
+      "duration_seconds": 1.5759680271148682
+    },
+    {
+      "event": "pipeline_start",
+      "version": "v2",
+      "timestamp": "2026-02-08T10:51:25.068208",
+      "input_sources": [
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\features_output\\features_v1.csv",
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\output\\validated_Activity Logs.csv",
+        "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\ml_output\\anomaly_flagged_weather.csv"
+      ]
+    },
+    {
+      "event": "transformation",
+      "version": "v2",
+      "transformation": "cross_dataset_features",
+      "timestamp": "2026-02-08T10:51:25.149574",
+      "features_created_count": 7
+    },
+    {
+      "event": "transformation",
+      "version": "v2",
+      "transformation": "lag_features",
+      "timestamp": "2026-02-08T10:51:25.159268",
+      "features_created_count": 0
+    },
+    {
+      "event": "pipeline_complete",
+      "version": "v2",
+      "timestamp": "2026-02-08T10:51:25.195423",
+      "total_features": 7,
+      "duration_seconds": 0.1272144317626953
+    }
+  ],
+  "summary": {
+    "total_versions": 2,
+    "total_transformations": 4,
+    "total_audit_events": 8
+  }
+}
