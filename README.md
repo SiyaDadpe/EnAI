@@ -235,10 +235,36 @@ print(f\"Valid: {report['valid_count']}/{report['total_rows']}\")
 
 ### ML Team
 
-**Use these files for training:**
-- `data/output/validated_Weather.csv`
-- `data/output/validated_Station Region.csv`  
-- `data/output/validated_Activity Logs.csv`
+## 🤖 AI Explanations Layer (NEW)
+
+**What it does:**
+- Reads pipeline artifacts, logs, metadata, and ML outputs
+- Generates natural language summaries, anomaly explanations, and decision support recommendations
+- Produces a PDF/JSON report and launches an interactive dashboard
+- Alerts for critical anomalies
+
+**How to use:**
+- Run `python main.py` (with `.env` toggles for AI features)
+- Outputs:
+  - `data/ai_output/ai_explanations_report.pdf` (PDF)
+  - `data/ai_output/ai_explanations_report.json` (JSON)
+  - Streamlit dashboard at `http://localhost:8501` (auto-launches)
+  - Alerts in `data/ai_output/alerts.json` (optional)
+
+**API Setup:**
+- Gemini/OpenAI API keys can be set in `.env` for LLM-powered explanations (optional)
+
+**Workflow:**
+1. Run `python main.py` (pipeline, explanations, dashboard)
+2. Review PDF/JSON report in `data/ai_output/`
+3. Explore dashboard (auto-launches)
+4. Alerts and recommendations available for downstream teams
+
+**Inputs for explanations:**
+- Pipeline logs: `pipeline.log`, `audit.log`
+- Validation reports in `metadata.json`
+- ML anomaly outputs in `data/ml_output/`
+- Invalid row counts and reasons
 - `data/output/validated_Reference Units.csv`
 
 **Metadata available in:**
