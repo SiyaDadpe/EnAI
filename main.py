@@ -177,11 +177,23 @@ class DataPipeline:
             logger.info(f"Validation: {validation_report['valid_count']}/{validation_report['total_rows']} rows passed")
             logger.info(f"Quality: {quality_report['passed_all_checks']}/{quality_report['total_rows']} rows passed")
             
-            # Audit log
+            # Audit log - convert Pandas Series to JSON-serializable format
+            validation_metrics_for_audit = {
+                k: v for k, v in validation_report.items() if k != 'valid_rows'
+            }
+            validation_metrics_for_audit['valid_count'] = int(validation_report['valid_count'])
+            validation_metrics_for_audit['invalid_count'] = int(validation_report['invalid_count'])
+            
+            quality_metrics_for_audit = quality_report["quality_metrics"].copy()
+            # Convert any Series in quality_metrics to lists
+            for key, value in quality_metrics_for_audit.items():
+                if hasattr(value, 'tolist'):
+                    quality_metrics_for_audit[key] = value.tolist()
+            
             self.audit.log_quality_metrics({
                 "filename": filename,
-                "validation_metrics": validation_report,
-                "quality_metrics": quality_report["quality_metrics"],
+                "validation_metrics": validation_metrics_for_audit,
+                "quality_metrics": quality_metrics_for_audit,
             })
             
             self.results["validation"][filename] = {

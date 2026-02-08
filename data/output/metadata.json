@@ -1,13 +1,13 @@
 {
   "metadata": {
-    "pipeline_start": "2026-02-07T10:58:59.747408",
-    "pipeline_end": "2026-02-07T10:59:01.524216"
+    "pipeline_start": "2026-02-08T21:46:02.551224",
+    "pipeline_end": "2026-02-08T21:46:04.060938"
   },
   "lineage_graph": {
     "ingested_Weather.csv": {
       "stage": "ingestion",
-      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Weather.csv",
-      "timestamp": "2026-02-07T10:59:00.181233",
+      "source": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\raw\\Weather.csv",
+      "timestamp": "2026-02-08T21:46:03.081368",
       "stats": {
         "row_count": 50000,
         "column_count": 6,
@@ -38,10 +38,19 @@
         }
       }
     },
+    "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\validated\\Weather.csv": {
+      "stage": "validation",
+      "source": "ingested_Weather.csv",
+      "timestamp": "2026-02-08T21:46:03.280925",
+      "validation_report": {
+        "valid_rows": 19903,
+        "invalid_rows": 30097
+      }
+    },
     "ingested_Station Region.csv": {
       "stage": "ingestion",
-      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Station Region.csv",
-      "timestamp": "2026-02-07T10:59:00.892499",
+      "source": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\raw\\Station Region.csv",
+      "timestamp": "2026-02-08T21:46:03.532220",
       "stats": {
         "row_count": 800,
         "column_count": 3,
@@ -63,10 +72,19 @@
         }
       }
     },
+    "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\validated\\Station Region.csv": {
+      "stage": "validation",
+      "source": "ingested_Station Region.csv",
+      "timestamp": "2026-02-08T21:46:03.553812",
+      "validation_report": {
+        "valid_rows": 120,
+        "invalid_rows": 680
+      }
+    },
     "ingested_Activity Logs.csv": {
       "stage": "ingestion",
-      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Activity Logs.csv",
-      "timestamp": "2026-02-07T10:59:01.136552",
+      "source": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\raw\\Activity Logs.csv",
+      "timestamp": "2026-02-08T21:46:03.787661",
       "stats": {
         "row_count": 30000,
         "column_count": 5,
@@ -94,10 +112,19 @@
         }
       }
     },
+    "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\validated\\Activity Logs.csv": {
+      "stage": "validation",
+      "source": "ingested_Activity Logs.csv",
+      "timestamp": "2026-02-08T21:46:03.915873",
+      "validation_report": {
+        "valid_rows": 9971,
+        "invalid_rows": 20029
+      }
+    },
     "ingested_Reference Units.csv": {
       "stage": "ingestion",
-      "source": "C:\\Users\\Hp\\Desktop\\EnAI\\data\\raw\\Reference Units.csv",
-      "timestamp": "2026-02-07T10:59:01.503728",
+      "source": "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\raw\\Reference Units.csv",
+      "timestamp": "2026-02-08T21:46:04.035366",
       "stats": {
         "row_count": 4,
         "column_count": 3,
@@ -117,6 +144,15 @@
           "standard_unit": "object",
           "conversion_factor": "float64"
         }
+      }
+    },
+    "C:\\Users\\ADMIN\\Documents\\proj\\scal\\EnAI\\data\\validated\\Reference Units.csv": {
+      "stage": "validation",
+      "source": "ingested_Reference Units.csv",
+      "timestamp": "2026-02-08T21:46:04.055943",
+      "validation_report": {
+        "valid_rows": 4,
+        "invalid_rows": 0
       }
     }
   }
